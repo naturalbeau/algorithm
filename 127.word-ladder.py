@@ -14,9 +14,8 @@ class Solution:
         set1 = set([beginWord])
         set2 = set([endWord])
         wordList.remove(endWord)
-        step = 0
+        step = 1
         while len(set1) > 0 and len(set2) > 0:
-            step += 1
             newset = set()
             if len(set1) > len(set2):
                 set1, set2 = set2, set1
@@ -32,6 +31,7 @@ class Solution:
                     newset.add(newWord)
             
             set1 = newset
+            step += 1
             
         return 0
 

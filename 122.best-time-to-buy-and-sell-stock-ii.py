@@ -7,14 +7,14 @@
 # @lc code=start
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        cur_hold = float('-inf')
-        cur_not_hold = 0
+        cur_buy = float('-inf')
+        cur_sold = 0
         for price in prices:
-            pre_hold = cur_hold
-            pre_not_hold = cur_not_hold
-            cur_hold = max(pre_hold, pre_not_hold - price)
-            cur_not_hold = max(pre_not_hold, pre_hold + price)
-        return cur_not_hold
+            pre_buy = cur_buy
+            pre_sold = cur_sold
+            cur_buy = max(pre_buy, pre_sold - price)
+            cur_sold = max(pre_sold, pre_buy+ price)
+        return cur_sold
 
 # @lc code=end
 

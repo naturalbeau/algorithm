@@ -19,7 +19,7 @@ class Solution:
                 if sum3 == 0:
                     res.append([nums[i], nums[l], nums[r]])
                     l += 1
-                    while l < r and nums[l] == nums[ l-1]:
+                    while l < r and nums[l] == nums[l-1]:
                         l += 1
                 elif sum3 > 0:
                     r -= 1
