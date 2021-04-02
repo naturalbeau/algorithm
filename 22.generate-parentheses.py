@@ -7,21 +7,15 @@
 # @lc code=start
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        res = []
-        stack = [('(', 1, 0)]
-        while stack:
-            s, l, r = stack.pop(0)
-            if l == r and l == n:
-                res.append(s)
-                continue
-            if l < n:
-                stack.append((s + '(', l + 1, r))
-            if l > r:
-                stack.append((s + ')', l, r + 1))
-        return res
+        dp = [[] for _ in range( n + 1)]
+        dp[0] = ['']
+        for i in range(n+1):
+            for j in range(i):
+                dp[i] += ['(' + x + ')' + y for x in dp[j] for y in dp[i-j-1]]
+        return dp[n]
 # @lc code=end
 
-# DFS recursive O(2^N)
+# 1. DFS recursive O(2^N)
     # def generateParenthesis(self, n: int) -> List[str]:
     #     res = []
     #     def helper(left, right, s):
@@ -35,4 +29,20 @@ class Solution:
     #     helper(0, 0, '')
     #     return res
 
-# iterative with stack
+# 2. iterative with stack
+# def generateParenthesis(self, n: int) -> List[str]:
+#         res = []
+#         stack = [('(', 1, 0)]
+#         while stack:
+#             s, l, r = stack.pop(0)
+#             if l == r and l == n:
+#                 res.append(s)
+#                 continue
+#             if l < n:
+#                 stack.append((s + '(', l + 1, r))
+#             if l > r:
+#                 stack.append((s + ')', l, r + 1))
+#         return res
+#3 DP
+
+
