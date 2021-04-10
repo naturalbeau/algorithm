@@ -16,10 +16,11 @@ class Solution:
                 queue.append(i)
                 while queue:
                     s = queue.pop(0)
-                    visited.add(s)
-                    for j in range(n):
-                        if isConnected[s][j] == 1 and j not in visited:
-                            queue.append(j)
+                    if s not in visited:
+                        visited.add(s)
+                        for j in range(n):
+                            if isConnected[s][j] == 1 and j not in visited:
+                                queue.append(j)
                 count += 1
         return count
 

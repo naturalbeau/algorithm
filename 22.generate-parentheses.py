@@ -13,8 +13,15 @@ class Solution:
             for j in range(i):
                 dp[i] += ['(' + x + ')' + y for x in dp[j] for y in dp[i-j-1]]
         return dp[n]
+
 # @lc code=end
 
+# dp[0] = ['']
+# dp[1] = ['()']
+# dp[2]=['(())','()()'] i =3, j =0,1,2
+# dp[3]=['()(())','()()()','(())()','(())()','(()())'] dp[3] += dp[0] , dp[2]
+#                                     dp[1] dp[1]
+#                                     dp[2], dp[0]
 # 1. DFS recursive O(2^N)
     # def generateParenthesis(self, n: int) -> List[str]:
     #     res = []

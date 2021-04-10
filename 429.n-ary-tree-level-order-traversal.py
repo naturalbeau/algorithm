@@ -31,7 +31,7 @@ class Solution:
 # @lc code=end
 
 #recursive
-#iterative
+#iterative BFS
     # def levelOrder(self, root: 'Node') -> List[List[int]]:
     #     if not root:
     #         return []
@@ -41,8 +41,26 @@ class Solution:
     #         level = []
     #         for i in range(len(queue)):
     #             node = queue.pop(0)
+    #             if not node:
+    #                 continue
     #             level.append(node.val)
     #             for child in node.children:
     #                 queue.append(child)
-    #         res.append(level)
+    #         if level:
+    #           res.append(level)
+    #     return res
+
+# DFS iterative
+    # def levelOrder(self, root: 'Node') -> List[List[int]]:
+    #     res = []
+    #     stack = [(root, 1)]
+    #     while stack:
+    #         node, level = stack.pop()
+    #         if not node:
+    #             continue
+    #         if len(res) < level:
+    #             res.append([])
+    #         res[level-1].append(node.val)
+    #         for child in node.children[::-1]:
+    #             stack.append((child, level+1))
     #     return res

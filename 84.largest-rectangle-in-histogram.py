@@ -22,5 +22,14 @@ class Solution:
         return area
 # @lc code=end
 
-# brute force
+# brute force O(N^2)
+# def largestRectangleArea(self, heights: List[int]) -> int:
+#         n = len(heights)
+#         res = 0
+#         for i in range(n):
+#             minh = height[i]
+#             for j in range(i, n):
+#                 minh = min(minh, height[j)
+#                 res = max(res, minh * (j - i + 1))
+#         return res
 # two stack
